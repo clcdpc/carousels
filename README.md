@@ -2,8 +2,9 @@
 
 ### What is this repository for? ###
 
-* Provides a way to add library title carousels to a website.
+* Provides a way to add library carousels based off record sets to a website. The example includes basic HTML and CSS that can be used to add the carousel to a website. Or the library can query the API endpoint directly and have JSON returned that can be parsed as desired.
 
 ## How do I get set up?
 
-* See Example.zip in 'Extras' folder
+* See then Example.zip file in ['Extras' folder](https://bitbucket.org/clcdpc/carousels/src)
+* If you just want to query the endpoint for the JSON data, go to: https://carousels.clcohio.org/home/jsonp?callback=callback&rsid=RECORDSETID&ctx=PACPROFILENUMBER Replace RECORDSETID number with the number of the bib record set that contains the titles you want to display. Replace PACPROFILENUMBER with the PAC profile number (AKA CTX number) you want patrons to be directed to when they click on a title.
