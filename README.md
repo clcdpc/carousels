@@ -6,7 +6,7 @@
 
 ## How do I get set up?
 
-* For an example HTML file, see the index.html file from Example.zip in ['src/Carousels/Extras' folder](https://bitbucket.org/clcdpc/carousels/src)
+* For an example HTML file, see the index.html file from [Example.zip](https://bitbucket.org/clcdpc/carousels/src/master/src/Carousels/Extras/example.zip?at=master&fileviewer=file-view-default) in 'src/Carousels/Extras' folder
  * If you're using the bitbucket website (instead of cloning the repository) Click "view raw" after clicking Example.zip to download a local copy of the zip file.
 * To make a JSONP request (the name of the callback function is callback) use: https://carousels.clcohio.org/home/jsonp?callback=callback&rsid=RECORDSETID&ctx=PACPROFILENUMBER
 * To receive a JSON list of title information use: https://carousels.clcohio.org/home/jsonp?callback=json&rsid=RECORDSETID&ctx=PACPROFILENUMBER 
