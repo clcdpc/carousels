@@ -13,6 +13,11 @@ namespace Carousels.Controllers
     {
         PolarisEntities db = new PolarisEntities();
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public string jsonp(string callback, int rsid, string ctx = "0", string size = "S", string userId = null, string password = null)
         {
             password = string.IsNullOrWhiteSpace(password) ? ConfigurationManager.AppSettings["contentcafe_password"] : password;

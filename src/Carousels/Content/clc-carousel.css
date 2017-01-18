@@ -47,12 +47,14 @@
 
 .jcarousel-control-prev {
     left: -50px;
-    background: transparent url(https://catalog.clcohio.org/polaris/themes/shared/river-prev.jpg) no-repeat 0 0;
+    background: transparent;
+    color:black;
 }
 
 .jcarousel-control-next {
     right: -50px;
-    background: transparent url(https://catalog.clcohio.org/polaris/themes/shared/river-next.jpg) no-repeat 0 0;
+    background: transparent;
+    color:black
 }
 
 .jcarousel-control-prev:hover span,

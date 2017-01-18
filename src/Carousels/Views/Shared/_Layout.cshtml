@@ -7,12 +7,16 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Styles.Render("~/Content/clc-carousel.css")
+        @Styles.Render("~/Content/font-awesome/css/font-awesome.min.css")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/js")
+        @Scripts.Render("~/Scripts/jcarousel.min.js")
     </head>
     <body>        
         @RenderBody()
         @RenderSection("scripts", required: false)
+        
     </body>
 </html>
