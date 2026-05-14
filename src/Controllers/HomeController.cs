@@ -1,0 +1,29 @@
+using System.Diagnostics;
+using Carousels.Models;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+
+namespace Carousels.Controllers
+{
+    public partial class HomeController(ILogger<HomeController> logger, ICarouselItemProvider carouselItemProvider, ICatalogLinkProvider catalogLinkProvider, ICoverImageProvider coverImageProvider) : Controller
+    {
+        private readonly ILogger<HomeController> _logger = logger;
+
+        public string jsonp(string callback, int rsid, int ctx = 0, string size = "S")
+        {
+            var items = carouselItemProvider.GetItems(rsid);
+            var carousel = new Carousel { Name = items.First().RecordSetName, Items = items.Select(b => b.ToCarouselItem(coverImageProvider, catalogLinkProvider)) };
+            var json = JsonConvert.SerializeObject(carousel, new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeNonAscii });
+
+            return (callback == "callback") ? string.Format("callback('{0}')", json.Replace(@"\\'", @"\'")) : json;
+        }
+
+        public string jsonp2(string callback, int rsid, int ctx = 0, string size = "S") => jsonp(callback, rsid, ctx, size);
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
