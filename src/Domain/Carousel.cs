@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-﻿namespace Carousels.Domain
+namespace Carousels.Domain
 {
     public class Carousel
     {

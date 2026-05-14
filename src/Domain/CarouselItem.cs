@@ -1,4 +1,4 @@
-﻿namespace Carousels.Domain
+namespace Carousels.Domain
 {
     public class CarouselItem
     {

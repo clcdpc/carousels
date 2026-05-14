@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using Carousels.Abstractions;
-﻿namespace Carousels.Domain
+namespace Carousels.Domain
 {
     public class CarouselBibItem
     {

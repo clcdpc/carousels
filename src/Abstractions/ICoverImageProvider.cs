@@ -1,5 +1,5 @@
 using Carousels.Domain;
-﻿namespace Carousels.Abstractions
+namespace Carousels.Abstractions
 {
     public interface ICoverImageProvider
     {

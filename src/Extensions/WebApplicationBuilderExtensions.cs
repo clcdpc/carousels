@@ -1,4 +1,4 @@
-﻿namespace Carousels.Extensions
+namespace Carousels.Extensions
 {
     public static class WebApplicationBuilderExtensions
     {
