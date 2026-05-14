@@ -3,6 +3,6 @@ namespace Carousels.Abstractions
 {
     public interface ICatalogLinkProvider
     {
-        string GetLink(CarouselBibItem item);
+        string GetLink(CarouselBibItem item, int branchId);
     }
 }

@@ -18,7 +18,7 @@ namespace Carousels.Controllers
             var carousel = new Carousel
             {
                 Name = items.FirstOrDefault()?.RecordSetName ?? string.Empty,
-                Items = items.Select(b => b.ToCarouselItem(coverImageProvider, catalogLinkProvider, imageSize))
+                Items = items.Select(b => b.ToCarouselItem(coverImageProvider, catalogLinkProvider, imageSize, ctx))
             };
             var json = JsonConvert.SerializeObject(carousel, new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeNonAscii });
 
