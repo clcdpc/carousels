@@ -1,4 +1,6 @@
-namespace Carousels.Models
+using Carousels.Abstractions;
+using Carousels.Domain;
+namespace Carousels.Providers.Catalog
 {
     public class PowerPacCatalogLinkProvider(int branchId) : ICatalogLinkProvider
     {

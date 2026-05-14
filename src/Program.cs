@@ -1,5 +1,8 @@
 using Carousels.Extensions;
-using Carousels.Models;
+using Carousels.Abstractions;
+using Carousels.Providers.CarouselItems;
+using Carousels.Providers.Catalog;
+using Carousels.Providers.CoverImages;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Data.SqlClient;
 

@@ -1,4 +1,6 @@
-﻿namespace Carousels.Models
+using Carousels.Abstractions;
+using Carousels.Domain;
+namespace Carousels.Providers.CoverImages
 {
     public class ContentCafeCoverImageProvider : ICoverImageProvider
     {

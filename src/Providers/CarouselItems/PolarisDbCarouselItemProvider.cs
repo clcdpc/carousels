@@ -1,7 +1,10 @@
 using Dapper;
 using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
+using Carousels.Abstractions;
+using Carousels.Domain;
 
-namespace Carousels.Models
+namespace Carousels.Providers.CarouselItems
 {
     public class PolarisDbCarouselItemProvider(SqlConnection connection) : ICarouselItemProvider
     {
