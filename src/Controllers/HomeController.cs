@@ -11,9 +11,13 @@ namespace Carousels.Controllers
 
         public string jsonp(string callback, int rsid, int ctx = 0, string size = "S")
         {
-            var items = carouselItemProvider.GetItems(rsid);
+            var items = carouselItemProvider.GetItems(rsid).ToList();
             var imageSize = Enum.TryParse<CoverImageSize>(size, true, out var parsedSize) ? parsedSize : CoverImageSize.S;
-            var carousel = new Carousel { Name = items.First().RecordSetName, Items = items.Select(b => b.ToCarouselItem(coverImageProvider, catalogLinkProvider, imageSize)) };
+            var carousel = new Carousel
+            {
+                Name = items.FirstOrDefault()?.RecordSetName ?? string.Empty,
+                Items = items.Select(b => b.ToCarouselItem(coverImageProvider, catalogLinkProvider, imageSize))
+            };
             var json = JsonConvert.SerializeObject(carousel, new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeNonAscii });
 
             return (callback == "callback") ? string.Format("callback('{0}')", json.Replace(@"\\'", @"\'")) : json;
