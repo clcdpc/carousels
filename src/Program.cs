@@ -38,19 +38,8 @@ namespace Carousels
             builder.Services.AddSingleton<ICoverImageProvider, SyndeticsCoverImageProvider>();
             builder.Services.AddScoped<ICarouselItemProvider, PolarisDbCarouselItemProvider>();
 
-            builder.Services.AddHttpContextAccessor();
 
-            builder.Services.AddScoped<ICatalogLinkProvider>(s =>
-            {
-                var httpContext = s.GetRequiredService<IHttpContextAccessor>().HttpContext;
-                var ctxValue = httpContext?.Request.Query["ctx"].ToString();
-
-                var ctx = int.TryParse(ctxValue, out var parsedCtx)
-                    ? parsedCtx
-                    : 1;
-
-                return s.ResolveWith<PowerPacCatalogLinkProvider>(ctx);
-            });
+            builder.Services.AddScoped<ICatalogLinkProvider, PowerPacCatalogLinkProvider>();
 
             var app = builder.Build();
 

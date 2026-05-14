@@ -11,14 +11,15 @@ namespace Carousels.Controllers
     {
         private readonly ILogger<HomeController> _logger = logger;
 
-        public IActionResult jsonp(string callback, int rsid, int ctx = 0, string size = "S")
+        public IActionResult jsonp(string callback, int rsid, int ctx = 1, string size = "S")
         {
             var items = carouselItemProvider.GetItems(rsid).ToList();
+            var normalizedCtx = ctx > 0 ? ctx : 1;
             var imageSize = Enum.TryParse<CoverImageSize>(size, true, out var parsedSize) ? parsedSize : CoverImageSize.S;
             var carousel = new Carousel
             {
                 Name = items.FirstOrDefault()?.RecordSetName ?? string.Empty,
-                Items = items.Select(b => b.ToCarouselItem(coverImageProvider, catalogLinkProvider, imageSize))
+                Items = items.Select(b => b.ToCarouselItem(coverImageProvider, catalogLinkProvider, imageSize, normalizedCtx))
             };
             var json = JsonConvert.SerializeObject(carousel, new JsonSerializerSettings { StringEscapeHandling = StringEscapeHandling.EscapeNonAscii });
 
@@ -31,7 +32,7 @@ namespace Carousels.Controllers
             return Content(json, "application/json; charset=utf-8");
         }
 
-        public IActionResult jsonp2(string callback, int rsid, int ctx = 0, string size = "S") => jsonp(callback, rsid, ctx, size);
+        public IActionResult jsonp2(string callback, int rsid, int ctx = 1, string size = "S") => jsonp(callback, rsid, ctx, size);
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
