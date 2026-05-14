@@ -12,6 +12,7 @@ namespace Carousels
     {
         private const string CorsPolicyName = "_allowPublicCarouselReads";
         private const string DatabaseName = "Polaris";
+        private const int DefaultCatalogContext = 1;
 
         public static void Main(string[] args)
         {
@@ -45,9 +46,9 @@ namespace Carousels
                 var httpContext = s.GetRequiredService<IHttpContextAccessor>().HttpContext;
                 var ctxValue = httpContext?.Request.Query["ctx"].ToString();
 
-                var ctx = int.TryParse(ctxValue, out var parsedCtx)
+                var ctx = int.TryParse(ctxValue, out var parsedCtx) && parsedCtx > 0
                     ? parsedCtx
-                    : 1;
+                    : DefaultCatalogContext;
 
                 return s.ResolveWith<PowerPacCatalogLinkProvider>(ctx);
             });

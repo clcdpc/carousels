@@ -11,7 +11,7 @@ namespace Carousels.Controllers
     {
         private readonly ILogger<HomeController> _logger = logger;
 
-        public IActionResult jsonp(string callback, int rsid, int ctx = 0, string size = "S")
+        public IActionResult jsonp(string callback, int rsid, string size = "S")
         {
             var items = carouselItemProvider.GetItems(rsid).ToList();
             var imageSize = Enum.TryParse<CoverImageSize>(size, true, out var parsedSize) ? parsedSize : CoverImageSize.S;
@@ -31,7 +31,7 @@ namespace Carousels.Controllers
             return Content(json, "application/json; charset=utf-8");
         }
 
-        public IActionResult jsonp2(string callback, int rsid, int ctx = 0, string size = "S") => jsonp(callback, rsid, ctx, size);
+        public IActionResult jsonp2(string callback, int rsid, string size = "S") => jsonp(callback, rsid, size);
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
