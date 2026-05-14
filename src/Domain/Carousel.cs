@@ -3,7 +3,7 @@ namespace Carousels.Domain
 {
     public class Carousel
     {
-        public string Name { get; set; }
-        public IEnumerable<CarouselItem> Items { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public IEnumerable<CarouselItem> Items { get; set; } = [];
     }
 }
