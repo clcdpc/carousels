@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using Carousels.Abstractions;
+using Carousels.Domain;
 using Carousels.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;

@@ -1,4 +1,7 @@
-﻿namespace Carousels.Models
+using System;
+using System.Linq;
+using Carousels.Abstractions;
+﻿namespace Carousels.Domain
 {
     public class CarouselBibItem
     {

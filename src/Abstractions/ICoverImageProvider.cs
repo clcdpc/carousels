@@ -1,4 +1,5 @@
-﻿namespace Carousels.Models
+using Carousels.Domain;
+﻿namespace Carousels.Abstractions
 {
     public interface ICoverImageProvider
     {

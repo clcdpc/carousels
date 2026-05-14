@@ -1,4 +1,5 @@
-﻿namespace Carousels.Models
+using System.Collections.Generic;
+﻿namespace Carousels.Domain
 {
     public class Carousel
     {
